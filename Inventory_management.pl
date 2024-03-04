@@ -1,0 +1,17 @@
+a:-
+write('Prolog Program To  maintain inventory items using a compound object'),
+write('Number of items:'),
+read(N),
+length(L, N),
+maplist(read, L),
+write('Enter The Cost Of Each  Items:'),
+read(A),
+length(B, A),
+maplist(read, B),
+write('Enter The Description of Items:'),
+read(C),
+length(D, C),
+maplist(read, D),
+format("Items: ~w~n",[L,B,D]),
+format("Cost: ~w~n",[B]),
+format("Description: ~w~n",[D]).
