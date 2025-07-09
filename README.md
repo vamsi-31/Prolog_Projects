@@ -2,6 +2,36 @@
 
 Welcome to the Prolog Learning Path repository! This collection of Prolog programs is designed to help beginners explore the fascinating world of logic programming. We'll guide you from the very basics to more complex examples, making your learning journey smooth and enjoyable.
 
+## ⭐ Featured Examples for Learning
+
+To help you get started and see Prolog in action, here are some handpicked examples:
+
+### 🌱 Easy
+1.  **`hello_world.pl`**
+    *   **Concept:** The essential first program. Prints "hello world" and introduces the basic idea of a goal and output.
+    *   **Why:** A gentle introduction, perfect for verifying your Prolog setup and seeing a program run.
+2.  **`basic_facts_and_rules.pl`**
+    *   **Concept:** Defines simple facts (unconditional truths) and rules (conditional truths). Shows how Prolog uses these to answer queries.
+    *   **Why:** Clearly demonstrates Prolog's declarative nature and its fundamental reasoning mechanism.
+3.  **`factorial_recursive_standard.pl`** (was `t.pl`)
+    *   **Concept:** Calculates factorial using recursion, a core technique in Prolog. Shows a base case and a recursive step.
+    *   **Why:** A classic, easily understandable example of how recursion is expressed in Prolog for mathematical computations.
+
+### 🌳 Medium
+1.  **`family_tree.pl`** (was `FamilyTree.pl`)
+    *   **Concept:** Models family relationships (parent, male, female) as facts and defines complex relations (father, grandmother, ancestor) using rules.
+    *   **Why:** A classic Prolog example showcasing how to represent knowledge and deduce new information about relationships.
+2.  **`simple_database_queries.pl`** (was `simple_db_queries.pl`)
+    *   **Concept:** Uses Prolog facts to store data (like book records) and rules to perform sophisticated queries on this data.
+    *   **Why:** Illustrates Prolog's capability as a powerful querying language for structured information, akin to a database.
+
+### 🌲 Complex
+1.  **`sentence_parser_dcg.pl`**
+    *   **Concept:** Implements a simple English grammar using Definite Clause Grammars (DCGs) to parse sentences and build a parse tree.
+    *   **Why:** Highlights one of Prolog's most powerful and unique features, showcasing its strengths in natural language processing and symbolic computation.
+
+---
+
 ## 🌟 Why Prolog?
 
 Prolog (Programming in Logic) is a powerful language that's excellent for tasks involving symbolic reasoning, artificial intelligence, natural language processing, and database querying. It works by defining facts and rules, and then asking questions (queries) to deduce new information. It encourages a declarative way of thinking about problems.
@@ -19,10 +49,10 @@ Prolog (Programming in Logic) is a powerful language that's excellent for tasks 
 This section introduces the absolute basics: how to write simple statements and ask Prolog about them.
 
 ### 🌍 Hello, World!
-*   **File:** `Helloworld.pl`
+*   **File:** `hello_world.pl`
 *   **Concept:** The most basic Prolog program that prints "hello world" to the console. It introduces the concept of a *goal* (`main`) and a built-in *predicate* (`write/1`) for output. This is often the first program you write in any new language!
 *   **How to Run:**
-    1.  Consult `Helloworld.pl`.
+    1.  Consult `hello_world.pl`.
     2.  At the Prolog prompt (usually `?-`), type: `main.`
 *   **Expected Output:**
     ```prolog
@@ -32,11 +62,11 @@ This section introduces the absolute basics: how to write simple statements and 
     The `true.` means Prolog successfully achieved the goal.
 
 ### 🧠 Facts & Basic Queries
-*   **File:** `BasicProlog.pl` (or `Simpleprolog.pl` - they are similar)
+*   **File:** `basic_facts_queries.pl`
 *   **Concept:** This program demonstrates how to define *facts* in Prolog. Facts are statements that are unconditionally true, like "Socrates is a man" or "The sky is blue." You'll learn how to ask Prolog questions (queries) about these facts.
     *   `likes(vamsi, krishna).` states that "vamsi likes krishna". This is a fact with a predicate `likes` and two arguments.
     *   `rises(sun).` states that "sun rises".
-*   **Example Queries (after consulting `BasicProlog.pl`):**
+*   **Example Queries (after consulting `basic_facts_queries.pl`):**
     *   `?- likes(vamsi, krishna).` (Does vamsi like krishna?)
         *   Output: `true.`
     *   `?- likes(X, krishna).` (Who likes krishna? `X` is a variable.)
@@ -78,28 +108,28 @@ This section introduces the absolute basics: how to write simple statements and 
 Prolog isn't just for logic; it can handle data too! This section covers arithmetic, a fundamental data structure called lists, and how Prolog can act like a simple database.
 
 ### ➕ Simple Arithmetic Operations
-*   **File:** `Calculator_InProlog.pl` (covers basic operations)
+*   **File:** `simple_calculator.pl` (covers basic operations)
 *   **Concept:** Prolog can perform arithmetic. This program shows how to do addition, subtraction, etc. It uses the `is` operator, which is crucial: `X is 2 + 2` calculates `2+2` and makes `X` equal to `4`.
-*   **How to Run:** Consult `Calculator_InProlog.pl`, then type `ar.` and follow the prompts for numbers.
+*   **How to Run:** Consult `simple_calculator.pl`, then type `ar.` and follow the prompts for numbers.
 *   **Example (Input 10, then 5 for `ar.`):**
     `sum is : 15`
     `diff is : 5`
     `...and so on for other operations.`
 
 ### !️⃣ Factorial Calculation
-*   **File:** `Factorial.pl` (original version)
+*   **File:** `factorial_interactive.pl` (original interactive version)
 *   **Concept:** Factorial (e.g., 5! = 5\*4\*3\*2\*1 = 120) is a classic example of *recursion*. A recursive definition has a *base case* (e.g., factorial of 0 is 1) and a *recursive step* (e.g., factorial of N is N times factorial of N-1).
-*   **Note:** The `Factorial.pl` in the repo has an unusual structure. A more standard way to define and query factorial in Prolog is:
+*   **Note:** The `factorial_interactive.pl` in the repo has an unusual structure for direct querying but is interactive. For a more standard, queryable definition, see `factorial_recursive_standard.pl`. A typical standard definition is:
     ```prolog
     factorial(0, 1). % Base case
     factorial(N, F) :- N > 0, N1 is N - 1, factorial(N1, F1), F is N * F1.
     ```
-*   **Standard Query (for the suggested version above):**
+*   **Standard Query (for a version like `factorial_recursive_standard.pl`):**
     *   `?- factorial(5, X).`
         *   Output: `X = 120.`
 
 ### 📚 Simple Database Queries
-*   **File:** `simple_db_queries.pl`
+*   **File:** `simple_database_queries.pl`
 *   **Concept:** You can store information as Prolog facts, just like records in a database table. Then, you can write rules to query this information. This example stores facts about books (title, author, genre, year) and shows how to ask questions like "Find all books by Tolkien" or "List sci-fi books published after 1960."
 *   **Example Queries:**
     *   `?- books_by_author('J.R.R. Tolkien', Title).`
@@ -107,7 +137,7 @@ Prolog isn't just for logic; it can handle data too! This section covers arithme
     *   `?- authors_in_genre(fantasy, AuthorsList).`
 
 ### 📋 Basic List Operations
-*   **File:** `basic_list_operations.pl` (also see `Length_of_list.pl`, `List_concation.pl`, `List_sum.pl`, `Reverse_array.pl`, `List_intesection.pl`, `List_union.pl` for more examples).
+*   **File:** `basic_list_operations.pl` (also see `list_length.pl`, `list_concatenation.pl`, `list_sum_elements.pl`, `list_reverse.pl`, `list_intersection.pl`, `List_union.pl` for more examples).
 *   **Concept:** Lists are ordered collections of items, like `[a, b, c]` or `[1, 2, 3]`. They are incredibly useful in Prolog. This file (and others listed) show common operations:
     *   `my_member(Element, List)`: Is Element in the List?
     *   `my_append(List1, List2, ResultList)`: Join List1 and List2.
@@ -122,13 +152,13 @@ Prolog isn't just for logic; it can handle data too! This section covers arithme
         *   Output: `Rev = [c,b,a].`
 
 ### 🔁 Palindrome Check
-*   **File:** `Check_palindrome.pl`
+*   **File:** `palindrome_checker.pl`
 *   **Concept:** A palindrome is a word or list that reads the same forwards and backward (e.g., "madam", `[m,a,d,a,m]`). This program checks if a list is a palindrome, usually by reversing it and comparing it to the original.
-*   **Example Query (using a helper like `my_reverse/2`):**
+*   **Example Query (using a helper like `my_reverse/2` from `basic_list_operations.pl` or `list_reverse.pl`):**
     *   If you define `is_palindrome(L) :- my_reverse(L, L).`
     *   `?- is_palindrome([m,a,d,a,m]).`
         *   Output: `true.`
-    *   The `palind/1` in `Check_palindrome.pl` prints the result directly.
+    *   The `palind/1` in `palindrome_checker.pl` prints the result directly.
 
 ---
 
@@ -137,7 +167,7 @@ Prolog isn't just for logic; it can handle data too! This section covers arithme
 This is where Prolog truly shines! These examples show how to represent complex relationships and solve problems that require logical deduction.
 
 ### 👨‍👩‍👧‍👦 Family Tree
-*   **File:** `FamilyTree.pl`
+*   **File:** `family_tree.pl` (See also `family_tree_variation.pl` and `family_tree_extended.pl` (was `L.pl`) for other variations)
 *   **Concept:** A classic Prolog example. You define facts about family members (e.g., `male(john).`, `parent_of(john, mary).`) and then write rules to define more complex relationships like `father_of(F,C)`, `sibling_of(A,B)`, `grandfather_of(GF,GC)`, etc. Prolog can then answer questions like "Who is Mary's grandfather?".
 *   **Example Queries:**
     *   `?- father_of(jack, jess).`
@@ -155,7 +185,7 @@ This is where Prolog truly shines! These examples show how to represent complex 
     `Region r2 is colored green` ...
 
 ### 🕵️ Simple Logic Puzzle (Einstein-like)
-*   **File:** `logic_puzzle_simple_einstein.pl`
+*   **File:** `logic_puzzle_einstein.pl`
 *   **Concept:** These puzzles involve a set of items in different categories (e.g., people, nationalities, pets, drinks) and a list of clues linking them. The goal is to deduce all relationships (e.g., "Who owns the Zebra?"). This program sets up a simplified version and uses Prolog's search and constraint satisfaction capabilities to find the solution.
 *   **How to Run:**
     *   `?- solve_and_report.`
@@ -188,7 +218,7 @@ This is where Prolog truly shines! These examples show how to represent complex 
     *   `?- find_path_bfs(a, l, Path).` (Find a path from 'a' to 'l' using BFS)
 
 ### 💧 4-Litre Water Jug Problem
-*   **File:** `4litre_waterhug_problem.pl`
+*   **File:** `water_jug_problem_4l_3l.pl`
 *   **Concept:** A classic puzzle: using only a 4-litre jug and a 3-litre jug (and an unlimited water source), can you measure out exactly 2 litres? The version in this repository is a specific state-checker. A more general solution involves defining states (amount of water in each jug) and actions (fill, empty, pour) and searching for a sequence of actions to reach the goal state.
 *   **Note:** This example is good for understanding how states can be represented, but a full search-based solution would be more complex and typical for AI problem-solving.
 
@@ -233,17 +263,17 @@ More advanced topics showing Prolog's strengths in AI and symbolic computation.
 These are existing interactive programs from the repository that show how Prolog can be used for basic data input, processing, and output.
 
 ### 🧑‍💼 Employee Data
-*   **File:** `Employee.pl`
+*   **File:** `employee_salary_calculator.pl`
 *   **Concept:** Calculates an employee's gross salary based on interactive input.
 
 ### 📦 Inventory Management
-*   **File:** `Inventory_management.pl`
+*   **File:** `inventory_manager.pl`
 *   **Concept:** Interactively manages a list of inventory items, costs, and descriptions.
 
 ### 🎓 Student Marks & Average
-*   **Files:** `Student_marks.pl`, `studentaverage.pl`
+*   **File:** `student_marks_percentage.pl`
 *   **Concept:** Calculates student percentages based on marks entered for multiple subjects.
-    *   **Note:** `Student_marks.pl` is more complete. `studentaverage.pl` has some logical issues in its current state for accumulation.
+    *   **Note:** `student_marks_percentage.pl` is more complete. The previous `studentaverage.pl` file had logical issues and has been removed.
 
 ---
 
